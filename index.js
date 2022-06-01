@@ -4,7 +4,9 @@ const Manager = require('./lib/Manager');
 const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const createSite = require('./src/create-site.js');
+const OUTPUT_DIR = "./dist/"
 console.log("answer the following questions to generate a Team-profile.")
+
 
 const crew = [];
 
@@ -67,8 +69,9 @@ const promptMenu = () => {
             choices: ['add an engineer', 'add an intern', 'finish building my team']
         }])
         .then(choice => {
+            console.log(choice)
             switch (choice.menu) {
-                case "add a Engineer":
+                case "add an engineer": 
                     promptEngineer();
                     break;
                 case "add an intern":
@@ -141,7 +144,7 @@ const promptEngineer = () => {
         }
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.employeeID, answers.email, answes.githubName);
+        const engineer = new Engineer(answers.name, answers.employeeID, answers.email, answers.githubName);
         crew.push(engineer);
         promptMenu();
     })
@@ -225,7 +228,7 @@ const yourTeam = () => {
     if(!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFileSync(outputPath, createSite(crew), "utf-8");
+    fs.writeFileSync(OUTPUT_DIR + "lineup.html", createSite(crew), "utf-8");
 }
 
 promptManager();

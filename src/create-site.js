@@ -1,4 +1,7 @@
-<!DOCTYPE html>
+module.exports = lineup => {
+
+    return `
+    <!DOCTYPE html>
 <html lang="en">
 <head class="header">
     <link rel="stylesheet" href="style.css">
@@ -51,4 +54,5 @@
     
 </body>
 </html>
-    
+    `
+}
