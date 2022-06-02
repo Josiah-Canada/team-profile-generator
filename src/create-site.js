@@ -13,43 +13,42 @@ module.exports = lineup => {
 <body>
     <div class="card">
         <div class="container">
-       <h2>Manager: 'Consuela'</h2>
+            <h2>Manager: ${lineup[0].name}</h2>
        </div>
-       <p>Id: '78456374'</p>
-       <p>email: 'suelasuey@gmail.com'</p>
-       <p>Office number: 'Office Number 8'</p>
+       <p>Id: ${lineup[0].id}</p>
+       <p>email: ${lineup[0].email}</p>
+       <p>Office number: ${lineup[0].officeNumber}</p>
     </div>
     <div class="card">
         <div class="container">
-            <h2>Engineer: 'Harry'</h2>
+            <h2>Engineer: ${lineup[0].name}</h2>
         </div>
-        <p>Id: '7654321'</p>
-        <p>email: 'wizardharry@gmail.com'</p>
-        <p>Github: 'Harry-Potter'</p>
+        <p>Id: ${lineup[0].id}</p>
+        <p>email: ${lineup[0].email}</p>
+        <p>Github: ${lineup[0].github}</p>
+    </div>
+    <div class="card">
+    <div class="container">
+            <h2>Engineer: ${lineup[0].name}</h2>
+        </div>
+        <p>Id: ${lineup[0].id}</p>
+        <p>email: ${lineup[0].email}</p>
+        <p>Github: ${lineup[0].github}</p>
+    </div>
+    <div class="card">
+            <h2>Engineer: ${lineup[0].name}</h2>
+    </div>
+    <p>Id: ${lineup[0].id}</p>
+    <p>email: ${lineup[0].email}</p>
+    <p>Github: ${lineup[0].github}</p>
     </div>
     <div class="card">
         <div class="container">
-            <h2>Engineer: 'Harry'</h2>
+            <h2>Intern: ${lineup[0].name}</h2>
         </div>
-        <p>Id: '7654321'</p>
-        <p>email: 'wizardharry@gmail.com'</p>
-        <p>Github: 'Harry-Potter'</p>
-    </div>
-    <div class="card">
-        <div class="container">
-            <h2>Engineer: 'Harry'</h2>
-        </div>
-        <p>Id: '7654321'</p>
-        <p>email: 'wizardharry@gmail.com'</p>
-        <p>Github: 'Harry-Potter'</p>
-    </div>
-    <div class="card">
-        <div class="container">
-        <h2>Intern: 'Dawn'</h2>
-        </div>
-        <p>Id: '79798678'</p>
-        <p>email: 'newday@gmail.com'</p>
-        <p>School: 'Howard-U'</p>
+        <p>Id: ${lineup[0].id}</p>
+        <p>email: ${lineup[0].email}</p>
+        <p>School: ${lineup[0].school}</p>
     </div>
     
 </body>

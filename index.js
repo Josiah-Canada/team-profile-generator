@@ -1,3 +1,4 @@
+const path = require("path")
 const inquirer = require("inquirer")
 const fs = require("fs")
 const Manager = require('./lib/Manager');
@@ -224,11 +225,11 @@ const yourTeam = () => {
     My team is complete
     ====================
     `);
-
+    console.log(crew)
     if(!fs.existsSync(OUTPUT_DIR)) {
         fs.mkdirSync(OUTPUT_DIR)
     }
-    fs.writeFileSync(OUTPUT_DIR + "lineup.html", createSite(crew), "utf-8");
+    fs.writeFileSync(path.join(OUTPUT_DIR, "lineup.html"), createSite(crew), "utf-8");
 }
 
 promptManager();
