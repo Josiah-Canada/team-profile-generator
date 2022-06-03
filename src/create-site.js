@@ -15,7 +15,7 @@ module.exports = lineup => {
         <div class="container">
             <h2>Manager: ${lineup[0].name}</h2>
        </div>
-       <p>Id: ${lineup[0].id}</p>
+       <p>id: ${lineup[0].id}</p>
        <p>email: ${lineup[0].email}</p>
        <p>Office number: ${lineup[0].officeNumber}</p>
     </div>
@@ -23,32 +23,32 @@ module.exports = lineup => {
         <div class="container">
             <h2>Engineer: ${lineup[0].name}</h2>
         </div>
-        <p>Id: ${lineup[0].id}</p>
+        <p>id: ${lineup[0].id}</p>
         <p>email: ${lineup[0].email}</p>
-        <p>Github: ${lineup[0].github}</p>
+        <p>github: ${lineup[0].github}</p>
     </div>
     <div class="card">
     <div class="container">
             <h2>Engineer: ${lineup[0].name}</h2>
         </div>
-        <p>Id: ${lineup[0].id}</p>
+        <p>id: ${lineup[0].id}</p>
         <p>email: ${lineup[0].email}</p>
-        <p>Github: ${lineup[0].github}</p>
+        <p>github: ${lineup[0].github}</p>
     </div>
     <div class="card">
             <h2>Engineer: ${lineup[0].name}</h2>
     </div>
-    <p>Id: ${lineup[0].id}</p>
+    <p>id: ${lineup[0].id}</p>
     <p>email: ${lineup[0].email}</p>
-    <p>Github: ${lineup[0].github}</p>
+    <p>github: ${lineup[0].github}</p>
     </div>
     <div class="card">
         <div class="container">
             <h2>Intern: ${lineup[0].name}</h2>
         </div>
-        <p>Id: ${lineup[0].id}</p>
+        <p>id: ${lineup[0].id}</p>
         <p>email: ${lineup[0].email}</p>
-        <p>School: ${lineup[0].school}</p>
+        <p>school: ${lineup[0].school}</p>
     </div>
     
 </body>

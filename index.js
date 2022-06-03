@@ -1,3 +1,4 @@
+// create paths for all objects and outputs
 const path = require("path")
 const inquirer = require("inquirer")
 const fs = require("fs")
@@ -6,11 +7,12 @@ const Engineer = require('./lib/Engineer');
 const Intern = require('./lib/Intern');
 const createSite = require('./src/create-site.js');
 const OUTPUT_DIR = "./dist/"
+const Employee = require('./lib/Employee');
 console.log("answer the following questions to generate a Team-profile.")
 
-
+// object variable for when program is run
 const crew = [];
-
+// prompt the manager questions at the star of program
 const promptManager = () => {
     return inquirer.prompt([
         {
@@ -55,12 +57,12 @@ const promptManager = () => {
         },
     ]).then(answers => {
         console.log(answers);
-        const manager = new Manager(answers.name, answers.employeeId, answers.email, answers.officeNumber)
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber)
         crew.push(manager);
         promptMenu();
     })
 };
-
+// open a menu that allows you to add more employees to your roster
 const promptMenu = () => {
     return inquirer.prompt([
         {
@@ -78,10 +80,63 @@ const promptMenu = () => {
                 case "add an intern":
                     promptIntern();
                     break;
+                case "add an employee":
+                    promptEmployee();
+                    break;
                     default:
                         yourTeam();
             }
         });
+};
+// prompting employee roles
+const promptEmployee = () => {
+    return inquirer.prompt([
+        {
+            type: "input",
+            name: "name",
+            message: "what's your employees name?, (requireed)",
+            validate: nameInput => {
+                if (nameInput) {
+                    return true;
+                } else {
+                    console.log('Please enter a name.');
+                    return false;
+                }
+            }
+            
+        },
+        {
+            type: "input",
+            name: "id",
+            message: "What's your employee id? (required)",
+            validate: id => {
+                if (id) {
+                    return true;
+                } else {
+                    console.log("enter your id.");
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
+            name: "email",
+            message: "What's your email address? (required)",
+            validate: email => {
+                if (email) {
+                    return true;
+                } else {
+                    console.log("enter an email address.");
+                    return false;
+                }
+            } 
+        },
+    ]).then(answers => {
+        console.log(answers);
+        const employee = new Employee(answers.name, answers.id, answers.email)
+        crew.push(employee);
+        promptMenu();
+    })
 };
 
 const promptEngineer = () => {
@@ -106,10 +161,10 @@ const promptEngineer = () => {
         },
         {
             type: "input",
-            name: "employeeId",
+            name: "id",
             message: "what's your employee Id? (required)",
-            validate: employeeId => {
-                if (employeeId) {
+            validate: id => {
+                if (id) {
                     return true;
                 } else {
                     console.log("please enter an employee id.");
@@ -132,7 +187,7 @@ const promptEngineer = () => {
         },
         {
             type: "input",
-            name: "githunUserName",
+            name: "githubUserName",
             message: "what's your gihun user name? (required)",
             validate: githubName => {
                 if (githubName) {
@@ -145,7 +200,7 @@ const promptEngineer = () => {
         }
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.employeeID, answers.email, answers.githubName);
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.githubName);
         crew.push(engineer);
         promptMenu();
     })
@@ -174,10 +229,10 @@ const promptIntern = () => {
          },
          {
              type: "input",
-             name: "employeeId",
+             name: "id",
              message: "what's your employee id? (required)",
-             validate: employeeID => {
-                 if (employeeID) {
+             validate: id => {
+                 if (id) {
                      return true;
                  } else {
                      console.log("please enter an employee id?");
@@ -213,12 +268,12 @@ const promptIntern = () => {
          }
     ]).then(answers => {
         console.log(answers);
-        const intern = new Intern(answers.name, answers.employeeId, answers.email, answers.school);
-        crew.push(Intern);
+        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+        crew.push(intern);
         promptMenu();
     })
 };
-
+// adds team members to crew object and completes the run of the program
 const yourTeam = () => {
     console.log(`
     ====================
