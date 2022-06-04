@@ -31,6 +31,19 @@ const promptManager = () => {
         },
         {
             type: "input",
+            name: "id",
+            message: "what's your id? (required)",
+            validate: id => {
+                if (id) {
+                    return true;
+                } else {
+                    console.log('Please enter an id');
+                    return false;
+                }
+            }
+        },
+        {
+            type: "input",
             name: "email",
             message: "What's your email address? (required)",
             validate: email => {
@@ -69,7 +82,7 @@ const promptMenu = () => {
             type: 'list',
             name: 'menu',
             message: "please select an option below:",
-            choices: ['add an engineer', 'add an intern', 'finish building my team']
+            choices: ['add an engineer', 'add an intern', 'finish building my team', 'add an employee']
         }])
         .then(choice => {
             console.log(choice)
@@ -187,10 +200,10 @@ const promptEngineer = () => {
         },
         {
             type: "input",
-            name: "githubUserName",
+            name: "github",
             message: "what's your gihun user name? (required)",
-            validate: githubName => {
-                if (githubName) {
+            validate: github => {
+                if (github) {
                     return true;
                 } else {
                     console.log("enter a github user name");
@@ -200,7 +213,7 @@ const promptEngineer = () => {
         }
     ]).then(answers => {
         console.log(answers);
-        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.githubName);
+        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
         crew.push(engineer);
         promptMenu();
     })
