@@ -82,6 +82,5 @@ module.exports = lineup => {
     <main> My ${createTeam(lineup)} </main>
 </body>
 </html>
-    `
-}
-
+    `;
+}}
