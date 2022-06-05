@@ -1,3 +1,67 @@
+const  createTeam = (lineup) => {
+    
+    const teamInfo = [];
+
+    const createManager = manager => {
+        let managerInfo = `
+        <div  class="card"> 
+        <div "container"> ${manager.name}  </div> <br/>
+        <ul> 
+            <li> ${manager.id} </li>
+            <li> ${manager.email} </li>
+            <li> ${manager.officeNumber} </li>
+        </ul>
+        </div>
+        `
+        teamInfo.push(managerInfo);
+    }
+    const createEngineer = engineer => {
+        let engineerInfo = `
+        <div  class="card"> 
+        <div "container"> ${engineer.name}  </div> <br/>
+        <ul> 
+            <li> ${engineer.id} </li>
+            <li> ${engineer.email} </li>
+            <li> ${engineer.officeNumber} </li>
+        </ul>
+        </div>`
+        teamInfo.push(engineerInfo);
+    }
+    const createIntern = intern => {
+        let internInfo = `
+        <div  class="card"> 
+        <div "container"> ${intern.name}  </div> <br/>
+        <ul> 
+            <li> ${intern.id} </li>
+            <li> ${intern.email} </li>
+            <li> ${intern.officeNumber} </li>
+        </ul>
+        </div>`
+        teamInfo.push(internInfo);
+    }
+    
+    //add mail to links for emails
+    
+   
+
+    for (let i = 0; i < lineup.length; i++) {
+        if (lineup[i].getRole() === "Manager") {
+           createManager(lineup[i]);
+        }
+        if (lineup[i].getRole() === "Engineer") {
+            createEngineer(lineup[i]);
+        }
+        if (lineup[i].getRole() === "Intern") {
+            createIntern(lineup[i]);
+        }
+    }
+
+
+
+
+
+
+
 module.exports = lineup => {
 
     return `
@@ -11,47 +75,13 @@ module.exports = lineup => {
     <title>Here's your team!</title>
 </head>
 <body>
-    <div class="card">
-        <div class="container">
-            <h2>Manager: ${lineup[0].name}</h2>
-       </div>
-       <p>id: ${lineup[0].id}</p>
-       <p>email: ${lineup[0].email}</p>
-       <p>Office number: ${lineup[0].officeNumber}</p>
-    </div>
-    <div class="card">
-        <div class="container">
-            <h2>Engineer: ${lineup[0].name}</h2>
-        </div>
-        <p>id: ${lineup[0].id}</p>
-        <p>email: ${lineup[0].email}</p>
-        <p>github: ${lineup[0].github}</p>
-    </div>
-    <div class="card">
-    <div class="container">
-            <h2>Engineer: ${lineup[0].name}</h2>
-        </div>
-        <p>id: ${lineup[0].id}</p>
-        <p>email: ${lineup[0].email}</p>
-        <p>github: ${lineup[0].github}</p>
-    </div>
-    <div class="card">
-            <h2>Engineer: ${lineup[0].name}</h2>
-    </div>
-    <p>id: ${lineup[0].id}</p>
-    <p>email: ${lineup[0].email}</p>
-    <p>github: ${lineup[0].github}</p>
-    </div>
-    <div class="card">
-        <div class="container">
-            <h2>Intern: ${lineup[0].name}</h2>
-        </div>
-        <p>id: ${lineup[0].id}</p>
-        <p>email: ${lineup[0].email}</p>
-        <p>school: ${lineup[0].school}</p>
-    </div>
-    
+    <header>
+    <h1> My Crew </h1>
+    </header>
+
+    <main> My ${createTeam(lineup)} </main>
 </body>
 </html>
     `
 }
+
