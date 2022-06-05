@@ -45,13 +45,13 @@ const  createTeam = (lineup) => {
    
 
     for (let i = 0; i < lineup.length; i++) {
-        if (lineup[i].getRole() === "Manager") {
+        if (lineup[i].returnRole() === "Manager") {
            createManager(lineup[i]);
         }
-        if (lineup[i].getRole() === "Engineer") {
+        if (lineup[i].returnRole() === "Engineer") {
             createEngineer(lineup[i]);
         }
-        if (lineup[i].getRole() === "Intern") {
+        if (lineup[i].returnRole() === "Intern") {
             createIntern(lineup[i]);
         }
     }
@@ -60,7 +60,7 @@ const  createTeam = (lineup) => {
 
 
 
-
+}
 
 module.exports = lineup => {
 
@@ -83,4 +83,4 @@ module.exports = lineup => {
 </body>
 </html>
     `;
-}}
+}
