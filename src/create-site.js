@@ -5,10 +5,10 @@ const  createTeam = (lineup) => {
     const createManager = manager => {
         let managerInfo = `
         <div  class="card"> 
-        <div "container"> ${manager.name}  </div> <br/>
+        <div class = "container"> ${manager.name}  </div> <br/>
         <ul> 
             <li> ${manager.id} </li>
-            <li> ${manager.email} </li>
+            <li><a href = "mailto:${manager.email}?subject=gujhi&body=gfghvjbklkm"></li>
             <li> ${manager.officeNumber} </li>
         </ul>
         </div>
@@ -17,27 +17,38 @@ const  createTeam = (lineup) => {
     }
     const createEngineer = engineer => {
         let engineerInfo = `
-        <div  class="card"> 
-        <div "container"> ${engineer.name}  </div> <br/>
+        <div  class = "card"> 
+        <div class = "container"> ${engineer.name}  </div> <br/>
         <ul> 
             <li> ${engineer.id} </li>
-            <li> ${engineer.email} </li>
-            <li> ${engineer.officeNumber} </li>
+            <li><a href = "mailto:${engineer.email}?subject=gujhi&body=gfghvjbklkm"> </li>
+            <li><a href = "${engineer.github}"> </li>
         </ul>
         </div>`
         teamInfo.push(engineerInfo);
     }
     const createIntern = intern => {
         let internInfo = `
-        <div  class="card"> 
-        <div "container"> ${intern.name}  </div> <br/>
+        <div  class = "card"> 
+        <div  class = "container"> ${intern.name}  </div> <br/>
         <ul> 
             <li> ${intern.id} </li>
-            <li> ${intern.email} </li>
-            <li> ${intern.officeNumber} </li>
+            <li><a href = "mailto:${intern.email}?subject=gujhi&body=gfghvjbklkm"></li>
+            <li> ${intern.school} </li>
         </ul>
         </div>`
         teamInfo.push(internInfo);
+    }
+    const createEmployee = employee => {
+        let employeeInfo = `
+        <div  class = "card"> 
+        <div  class = "container"> ${employee.name}  </div> <br/>
+        <ul> 
+            <li> ${employee.id} </li>
+            <li><a href ="mailto:${employee.email}?subject=gujhi&body=gfghvjbklkm"></li>
+        </ul>
+        </div>`
+        teamInfo.push(employeeInfo);
     }
     
     //add mail to links for emails
@@ -54,10 +65,13 @@ const  createTeam = (lineup) => {
         if (lineup[i].returnRole() === "Intern") {
             createIntern(lineup[i]);
         }
+        if (lineup[i].returnRole() === "Employee") {
+            createEmployee(lineup[i]);
+        }  teamInfo.join("")
     }
 
 
-
+return teamInfo;
 
 
 }
@@ -79,8 +93,10 @@ module.exports = lineup => {
     <h1> My Crew </h1>
     </header>
 
-    <main> My ${createTeam(lineup)} </main>
+    <main> ${createTeam(lineup)} </main>
 </body>
 </html>
     `;
 }
+// mailto:${manager.email}?subject=gujhi&body=gfghvjbklkm
+// ${manager.email}
